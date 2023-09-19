@@ -1,0 +1,20 @@
+CREATE TABLE Books (
+   BookId int IDENTITY(1,1) PRIMARY KEY,
+   Publisher varchar (20) NOT NULL,
+   AuthorLastName varchar (20) NOT NULL,
+   AuthorFirstName varchar (20) NOT NULL,
+   Price decimal (18,2),
+   Title varchar(20)
+);
+
+--Stored Procedure for Publisher Sort First:
+
+CREATE PROCEDURE sp_getbooksbypublisher AS
+SELECT *
+FROM Books ORDER BY Publisher ASC, AuthorLastName ASC,AuthorFirstName ASC,Title ASC;
+
+--Stored Procedure for Author Sort First:
+
+CREATE PROCEDURE sp_getbooksbyauthor AS
+SELECT *
+FROM Books ORDER BY AuthorLastName ASC,AuthorFirstName ASC,Title ASC;
